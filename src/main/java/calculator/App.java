@@ -21,7 +21,9 @@ public class App {
             System.out.print("사칙연산 기호를 입력하세요: ");
             char sign = sc.next().charAt(0);
 
-            result.add(calculator.calculate(num1 , num2 , sign));
+            // 이거 2-1에 추가하는줄 알고 넣었는데 2-2로 커밋하기 위해 다시 구조 바꾸겠습니다.
+            int calc = calculator.calculate(num1 , num2 , sign);
+            result.add(calc);
 
             System.out.println("결과: " + result.get(result.size() - 1));
 
