@@ -4,7 +4,12 @@ import calculator.exception.CalculatorException;
 import java.util.ArrayList;
 
 public class Calculator {
-    private ArrayList<Integer> result = new ArrayList<>();
+    private ArrayList<Integer> result;
+
+    // 2-6 Calculator 인스턴스를 생성할 때 생성자를 통해 연산 결과를 저장하고 있는 필드 초기화
+    Calculator(ArrayList<Integer> result) {
+        this.result = result;
+    }
 
     public int calculate(int num1 , int num2 , char sign) {
         int result = 0;
