@@ -1,8 +1,11 @@
 package calculator;
 
 import calculator.exception.CalculatorException;
+import java.util.ArrayList;
 
 public class Calculator {
+    private ArrayList<Integer> result = new ArrayList<>();
+
     public int calculate(int num1 , int num2 , char sign) {
         int result = 0;
         try {
@@ -31,5 +34,13 @@ public class Calculator {
             System.out.println(e.getMessage());
         }
         return result;
+    }
+
+    public ArrayList<Integer> getResult() {
+        return result;
+    }
+
+    public void setResult(ArrayList<Integer> result) {
+        this.result = result;
     }
 }

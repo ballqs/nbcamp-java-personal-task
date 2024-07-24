@@ -10,7 +10,7 @@ public class App {
 
         Calculator calculator = new Calculator();
 
-        ArrayList<Integer> result = new ArrayList<>();
+        ArrayList<Integer> result = calculator.getResult();
 
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -53,6 +53,7 @@ public class App {
             System.out.print(" >> ");
             String confirm = sc.nextLine();
             if (confirm.equals("exit")) {
+                calculator.setResult(result);
                 break;
             }
         }
