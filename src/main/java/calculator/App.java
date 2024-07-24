@@ -7,6 +7,9 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        int[] result = new int[10];
+        int index = 0;
+
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");
             int num1 = sc.nextInt();
@@ -16,32 +19,31 @@ public class App {
             System.out.print("사칙연산 기호를 입력하세요: ");
             char sign = sc.next().charAt(0);
 
-            int result = 0;
-
             switch (sign) {
                 case '+' :
-                    result = num1 + num2;
+                    result[index] = num1 + num2;
                     break;
                 case '-' :
-                    result = num1 - num2;
+                    result[index] = num1 - num2;
                     break;
                 case '*' :
-                    result = num1 * num2;
+                    result[index] = num1 * num2;
                     break;
                 case '/' :
                     // 1-3때 지문을 잘못이해하여 다시 수정
                     if (num2 == 0) {
                         System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다. ");
                     }else {
-                        result = num1 / num2;
+                        result[index] = num1 / num2;
                     }
                     break;
                 case '%' :
-                    result = num1 % num2;
+                    result[index] = num1 % num2;
                     break;
             }
 
-            System.out.println("결과: " + result);
+            System.out.println("결과: " + result[index]);
+            index++;
 
             /**
              * 사용자가 콘솔창에 값을 입력 후 enter를 누르는데 이때 개행문자는 제거하지 않은 채 그대로 남겨두기에
