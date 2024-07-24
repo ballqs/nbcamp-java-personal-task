@@ -56,6 +56,15 @@ public class App {
                 result.remove(0);
             }
 
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            System.out.print(" >> ");
+            String select_confirm = sc.nextLine();
+            if (select_confirm.equals("inquiry")) {
+                for (int i = 0; i < result.size(); i++) {
+                    System.out.println((i + 1) + "번째 숫자 : " + result.get(i));
+                }
+            }
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             System.out.print(" >> ");
             String confirm = sc.nextLine();
