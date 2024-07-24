@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -7,8 +8,7 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int[] result = new int[10];
-        int index = 0;
+        ArrayList<Integer> result = new ArrayList<>();
 
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -21,29 +21,31 @@ public class App {
 
             switch (sign) {
                 case '+' :
-                    result[index] = num1 + num2;
+                    result.add(num1 + num2);
                     break;
                 case '-' :
-                    result[index] = num1 - num2;
+                    result.add(num1 - num2);
                     break;
                 case '*' :
-                    result[index] = num1 * num2;
+                    result.add(num1 * num2);
                     break;
                 case '/' :
-                    // 1-3때 지문을 잘못이해하여 다시 수정
                     if (num2 == 0) {
                         System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다. ");
                     }else {
-                        result[index] = num1 / num2;
+                        result.add(num1 / num2);
                     }
                     break;
                 case '%' :
-                    result[index] = num1 % num2;
+                    result.add(num1 % num2);
                     break;
             }
 
-            System.out.println("결과: " + result[index]);
-            index++;
+            System.out.println("결과: " + result.get(result.size() - 1));
+
+            if (result.size() > 10) {
+                result.remove(0);
+            }
 
             /**
              * 사용자가 콘솔창에 값을 입력 후 enter를 누르는데 이때 개행문자는 제거하지 않은 채 그대로 남겨두기에
