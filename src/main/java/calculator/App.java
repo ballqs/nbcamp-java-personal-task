@@ -8,29 +8,26 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // 초기값을 뭘 넣어야할지 몰라서 아래와 같이 처리
-        Calculator calculator = new Calculator(new ArrayList<>() , new ArrayList<>());
-
         // 2-7. 숫자로 분기하는게 편해서 숫자로 진행했습니다.
         System.out.println("(1)사칙연산 , (2)원의넓이 중 고르세요!");
         System.out.print(" >> ");
         int bifurcation = sc.nextInt();
 
         if (bifurcation == 1) {
-
-            ArrayList<Integer> result = calculator.getResult();
+            ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>());
+            ArrayList<Double> result = arithmeticCalculator.getResult();
 
             while (true) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                int num1 = sc.nextInt();
+                double num1 = sc.nextDouble();
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                int num2 = sc.nextInt();
+                double num2 = sc.nextDouble();
 
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 char sign = sc.next().charAt(0);
 
                 // 이거 2-1에 추가하는줄 알고 넣었는데 2-2로 커밋하기 위해 다시 구조 바꾸겠습니다.
-                int calc = calculator.calculate(num1 , num2 , sign);
+                double calc = arithmeticCalculator.calculate(num1 , num2 , sign);
                 result.add(calc);
 
                 System.out.println("결과: " + result.get(result.size() - 1));
@@ -47,34 +44,35 @@ public class App {
                 if (remove_confirm.equals("remove")) {
                     // 여기서 삭제한 값이 위에 선언된 result에 적용되는 이유는
                     // 같은 인스턴스 주소인 calculator에서 받아왔기 때문이다.
-                    calculator.removeResult();
+                    arithmeticCalculator.removeResult();
                 }
 
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
                 System.out.print(" >> ");
                 String select_confirm = sc.nextLine();
                 if (select_confirm.equals("inquiry")) {
-                    calculator.inquiryResults();
+                    arithmeticCalculator.inquiryResults();
                 }
 
                 System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
                 System.out.print(" >> ");
                 String confirm = sc.nextLine();
                 if (confirm.equals("exit")) {
-                    calculator.setResult(result);
+                    arithmeticCalculator.setResult(result);
                     break;
                 }
             }
 
         } else {
-            ArrayList<Double> result2 = calculator.getResult2();
+            CircleCalculator circleCalculator = new CircleCalculator(new ArrayList<>());
+            ArrayList<Double> result2 = circleCalculator.getResult();
 
             while (true) {
                 System.out.print("반지름 길이를 입력하세요: ");
                 double radius = sc.nextDouble();
 
                 // 원의 넓이 결과값
-                result2.add(calculator.calculateCircleArea(radius));
+                result2.add(circleCalculator.calculate(radius));
                 System.out.println("결과: " + result2.get(result2.size() - 1));
 
                 sc.nextLine();
@@ -82,7 +80,7 @@ public class App {
                 System.out.print(" >> ");
                 String confirm = sc.nextLine();
                 if (confirm.equals("exit")) {
-                    calculator.setResult2(result2);
+                    circleCalculator.setResult(result2);
                     break;
                 }
             }
