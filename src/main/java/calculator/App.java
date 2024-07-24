@@ -46,9 +46,7 @@ public class App {
             System.out.print(" >> ");
             String select_confirm = sc.nextLine();
             if (select_confirm.equals("inquiry")) {
-                for (int i = 0; i < result.size(); i++) {
-                    System.out.println((i + 1) + "번째 숫자 : " + result.get(i));
-                }
+                calculator.inquiryResults();
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");

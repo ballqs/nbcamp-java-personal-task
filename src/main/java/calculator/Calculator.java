@@ -41,6 +41,13 @@ public class Calculator {
         result.remove(0);
     }
 
+    // 2-5 조회 메서드 구현
+    public void inquiryResults() {
+        for (int i = 0; i < result.size(); i++) {
+            System.out.println((i + 1) + "번째 숫자 : " + result.get(i));
+        }
+    }
+
     public ArrayList<Integer> getResult() {
         return result;
     }
