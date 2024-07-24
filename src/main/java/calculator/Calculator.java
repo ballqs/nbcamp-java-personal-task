@@ -36,6 +36,11 @@ public class Calculator {
         return result;
     }
 
+    // 2-4 삭제 메서드 구현
+    public void removeResult() {
+        result.remove(0);
+    }
+
     public ArrayList<Integer> getResult() {
         return result;
     }

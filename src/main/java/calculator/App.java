@@ -37,7 +37,9 @@ public class App {
             System.out.print(" >> ");
             String remove_confirm = sc.nextLine();
             if (remove_confirm.equals("remove")) {
-                result.remove(0);
+                // 여기서 삭제한 값이 위에 선언된 result에 적용되는 이유는
+                // 같은 인스턴스 주소인 calculator에서 받아왔기 때문이다.
+                calculator.removeResult();
             }
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
