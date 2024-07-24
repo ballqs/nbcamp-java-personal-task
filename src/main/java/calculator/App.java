@@ -43,15 +43,18 @@ public class App {
 
             System.out.println("결과: " + result.get(result.size() - 1));
 
-            if (result.size() > 10) {
-                result.remove(0);
-            }
-
             /**
              * 사용자가 콘솔창에 값을 입력 후 enter를 누르는데 이때 개행문자는 제거하지 않은 채 그대로 남겨두기에
              * 남겨진 개행문자가 다음 sc.nextLine() 입력으로 처리되어 곧바로 다음 라인으로 넘어가기에 추가함
              * */
             sc.nextLine();
+
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            System.out.print(" >> ");
+            String remove_confirm = sc.nextLine();
+            if (remove_confirm.equals("remove")) {
+                result.remove(0);
+            }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             System.out.print(" >> ");
