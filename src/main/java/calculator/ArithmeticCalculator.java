@@ -16,19 +16,19 @@ public class ArithmeticCalculator extends Calculator{
         try {
             switch (sign) {
                 case '+' :
-                    result = num1 + num2;
+                    result = addOperator.operate(num1 , num2);
                     break;
                 case '-' :
-                    result = num1 - num2;
+                    result = subtractOperator.operate(num1 , num2);
                     break;
                 case '*' :
-                    result = num1 * num2;
+                    result = multiplyOperator.operate(num1 , num2);
                     break;
                 case '/' :
-                    result = num1 / num2;
+                    result = divideOperator.operate(num1 , num2);
                     break;
                 case '%' :
-                    result = num1 % num2;
+                    result = remainOperator.operate(num1 , num2);
                     break;
                 default:
                     throw new CalculatorException();
