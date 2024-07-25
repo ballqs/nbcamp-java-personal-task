@@ -5,31 +5,22 @@ import calculator.exception.CalculatorException;
 import java.util.ArrayList;
 
 // 사칙연산
-public class ArithmeticCalculator extends Calculator{
-    ArithmeticCalculator(ArrayList<Double> result) {
-        super(result);
-    }
+public class ArithmeticCalculator extends Calculator<OperatorInterface , Character>{
 
-    // 사칙연산 계산
-    public double calculate(double num1 , double num2 , char sign) {
-        double result = 0;
+    @Override
+    public OperatorInterface calculate(Character sign) {
         try {
             switch (sign) {
                 case '+' :
-                    result = addOperator.operate(num1 , num2);
-                    break;
+                    return new AddOperator();
                 case '-' :
-                    result = subtractOperator.operate(num1 , num2);
-                    break;
+                    return new SubtractOperator();
                 case '*' :
-                    result = multiplyOperator.operate(num1 , num2);
-                    break;
+                    return new MultiplyOperator();
                 case '/' :
-                    result = divideOperator.operate(num1 , num2);
-                    break;
+                    return new DivideOperator();
                 case '%' :
-                    result = remainOperator.operate(num1 , num2);
-                    break;
+                    return new ModOperator();
                 default:
                     throw new CalculatorException();
             }
@@ -38,6 +29,6 @@ public class ArithmeticCalculator extends Calculator{
         } catch (CalculatorException e) { // 적합한 예외처리가 뭔지 몰라 작성함
             System.out.println(e.getMessage());
         }
-        return result;
+        return null;
     }
 }
