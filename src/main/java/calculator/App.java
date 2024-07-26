@@ -1,6 +1,6 @@
 package calculator;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -9,7 +9,8 @@ public class App {
         App app = new App();
         Scanner sc = new Scanner(System.in);
 
-        ArrayList<Double> result;
+        // ★★★★★★★메모 => List 를 앞에두고 뒤에 new ArrayList로 선언하는 것
+        List<Double> result;
 
         // 2-7. 숫자로 분기하는게 편해서 숫자로 진행했습니다.
         System.out.println("(1)사칙연산 , (2)원의넓이 중 고르세요!");
