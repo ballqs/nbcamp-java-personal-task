@@ -1,9 +1,9 @@
 package calculator;
 
 // 빼기
-public class SubtractOperator implements OperatorInterface {
+public class SubtractOperator<T extends Number> implements OperatorInterface<T> {
     @Override
-    public double operate(double num1, double num2) {
-        return num1 - num2;
+    public double operate(T num1, T num2) {
+        return num1.doubleValue() - num2.doubleValue();
     }
 }

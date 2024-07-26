@@ -5,21 +5,21 @@ import calculator.exception.CalculatorException;
 import java.util.ArrayList;
 
 // 사칙연산
-public class ArithmeticCalculator extends Calculator<OperatorInterface , Character>{
+public class ArithmeticCalculator<T extends Number> extends Calculator<OperatorInterface<T> , Character>{
     @Override
     public OperatorInterface calculate(Character sign) {
         try {
             switch (SignReplace(sign).name()) {
                 case "PLUS" :
-                    return new AddOperator();
+                    return new AddOperator<T>();
                 case "MINUS" :
-                    return new SubtractOperator();
+                    return new SubtractOperator<T>();
                 case "MULTI" :
-                    return new MultiplyOperator();
+                    return new MultiplyOperator<T>();
                 case "DIVIDE" :
-                    return new DivideOperator();
+                    return new DivideOperator<T>();
                 case "MOD" :
-                    return new ModOperator();
+                    return new ModOperator<T>();
                 default:
                     throw new CalculatorException();
             }

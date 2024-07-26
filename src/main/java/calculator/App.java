@@ -17,23 +17,29 @@ public class App {
         int bifurcation = sc.nextInt();
 
         if (bifurcation == 1) {
-            ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
+
+            // 3-2. 조건문을 통해서 byte short int long float double 타입별로 설정할수 있지만
+            //      그러면 줄도 길어지고 보는 사람도 힘들것같고 이를 어떻게 하나로 처리해야할지 감이 안잡혀
+            //      대표적으로 double Type으로 남겨두려고 합니다.
+            ArithmeticCalculator<Double> arithmeticCalculator = new ArithmeticCalculator<>();
             result = arithmeticCalculator.getResult();
 
             while (true) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                double num1 = sc.nextDouble();
+                double num1 = sc.nextInt();
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                double num2 = sc.nextDouble();
+                double num2 = sc.nextInt();
 
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 char sign = sc.next().charAt(0);
 
-                // 전략패턴 , 팩토리메서드패턴 찾아볼것
-
                 // 다형성 추가
                 double calc = arithmeticCalculator.calculate(sign).operate(num1 , num2);
                 result.add(calc);
+
+                // 3-2 int로 처리할때는 아래와 같이 작성하면 동작됩니다. 다만 int이기에 소수점은 없습니다.
+//                int calc = (int) arithmeticCalculator.calculate(sign).operate(num1 , num2);
+//                result.add((double) calc);
 
                 System.out.println("결과: " + result.get(result.size() - 1));
 
